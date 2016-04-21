@@ -1,0 +1,105 @@
+ <div class="main-box clearfix profile-box-stats"> 
+ 			<div class="main-box-body clearfix">
+ 				<div class="profile-box-header purple-bg clearfix" style="background-image: url(../../img/samples/nature.jpg);">
+						<h2>{{ form.name.vars.value }} {{ form.lastname.vars.value }}</h2>
+						<div class="job-position">
+							{{ form.username.vars.value }}
+						</div>
+						{% if form.photo.vars.value != "" %}
+						<img id="archivo" src="{{ asset(form.photo.vars.value) }}" class="profile-img img-responsive" />						
+						{% endif %}
+				</div>
+				 <div class="profile-box-footer clearfix">
+					<a href="#">
+						<span class="value"></span>
+						<span class="label"></span>
+					</a>
+					<a href="#">
+						<span class="value"></span>
+						<span class="label"></span>
+					</a>
+					<a href="#">
+						<span class="value"></span>
+						<span class="label"></span>
+					</a>
+				</div>    
+			</div>
+				<div class="form-group">
+					<label for="photo">{% trans %}Foto{% endtrans %}</label>
+					{{ form_widget(form.file) }}
+					<div style="visibility: hidden;">{{ form_widget(form.photo) }}</div>
+					{{ form_row(form._token) }}
+				</div>
+				
+				<div class="form-group">
+					<label for="username">{% trans %}Usuario{% endtrans %}</label>
+					<input name="{{ form.username.vars.full_name }}" value="{{ form.username.vars.value }}" type="username" class="form-control" id="username" placeholder="Ingrese Usuario" >
+					{{ form_row(form._token) }}
+				</div>
+				<div class="form-group">
+					<label for="name">{% trans %}Nombre{% endtrans %}</label>
+					<input name="{{ form.name.vars.full_name }}" value="{{ form.name.vars.value }}" type="name" class="form-control" id="name" placeholder="Ingrese Nombre" >
+				</div>
+				<div class="form-group">
+					<label for="lastname">{% trans %}Apellido{% endtrans %}</label>
+					<input name="{{ form.lastname.vars.full_name }}" value="{{ form.lastname.vars.value }}" type="lastname" class="form-control" id="lastname" placeholder="Ingrese Apellido" >
+				</div>
+				<div class="form-group">
+					<label for="datepickerDateComponent">{% trans %}Fecha de Nacimiento{% endtrans %}</label>
+					<div class="input-group" data-date-format="dd-mm-yyyy">
+						<input type="text" class="form-control" id="datepickerDateComponent" name="{{ form.birhDate.vars.full_name }}"  value="{% if form.birhDate.vars.value %}{{ form.birhDate.vars.value }}{% endif %}" >
+						
+						<span class="input-group-addon"><i class="fa fa-th"></i></span>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email">{% trans %}Email{% endtrans %}</label>
+					<input name="{{ form.email.vars.full_name }}" value="{{ form.email.vars.value }}" type="email" class="form-control" id="email" placeholder="Enter email">
+				</div>
+				<div class="form-group">
+				<label for=sport>{% trans %}Deporte Favorito{% endtrans %} </label>
+				{{ form_widget(form.sport) }}
+				</div>
+				<div class="form-group">
+				
+				
+				<input id="{{ form.street.vars.id }}" class="controls" name="{{ form.street.vars.full_name }}" value="{{ form.street.vars.value }}"
+			        placeholder="{% trans %}Ingrese Lugar{% endtrans %}">
+			    <div id="type-selector" class="controls">
+			      <input type="radio" name="type" id="changetype-all" checked="checked">
+			      <label for="changetype-all">All</label>
+			
+			      <input type="radio" name="type" id="changetype-establishment">
+			      <label for="changetype-establishment">Establishments</label>
+			
+			      <input type="radio" name="type" id="changetype-address">
+			      <label for="changetype-address">Addresses</label>
+			
+			      <input type="radio" name="type" id="changetype-geocode">
+			      <label for="changetype-geocode">Geocodes</label>
+			    </div>
+			    </div>
+				<div class="form-group">
+						<label for="email">{% trans %}Donde vivis?{% endtrans %}</label>
+						<div class="main-box clearfix">
+							
+							<div class="main-box-body clearfix">
+								<div id="map-geo" class="map-content" style="height: 400px; width: 750px"></div>
+							</div>
+						</div>
+					
+					
+				</div>
+				<div style="visibility: hidden;">
+				{{ form_widget(form.latitude) }}
+				{{ form_widget(form.longitude) }}
+				{{ form_widget(form.tipeUser) }}
+				{{ form_widget(form.password) }}
+				{{ form_widget(form.codePassword) }}
+				{{ form_widget(form.salt) }}
+				{{ form_widget(form.firstTime) }}
+				</div>
+				<button type="submit" class="btn btn-success">Enviar</button>
+
+		</div>
+

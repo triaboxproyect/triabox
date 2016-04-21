@@ -1,0 +1,32 @@
+
+{% extends '::layout_xtending_dashboard.html.twig' %}
+{% block main_box_label %}Users{% endblock %}
+{% block main_box -%}
+    
+				{% include 'UserBundle:User:list_users.html.twig' with {'entities': entities,'type': type } %}
+
+				
+				{% if type =='search' %} 
+					{% for entity in events %} 
+						{% include 'EventBundle:Event:view.html.twig' with {'entity': entity,'tipe': '' } %} 
+					{% endfor %}
+				{% endif %}
+
+{% endblock %}
+{% block lateral_box_up_label %}Proximos Eventos{% endblock %}
+												
+{% block lateral_box_up %}
+	<div id="event_error"></div>
+	<div id="event"></div>													
+{% endblock %}
+												
+
+
+{% block lateral_box_down_label %}{% endblock %}
+
+{% block lateral_box_down %}
+	
+{% endblock %}
+{% block script_ajax_up %}
+		
+	{% endblock %}

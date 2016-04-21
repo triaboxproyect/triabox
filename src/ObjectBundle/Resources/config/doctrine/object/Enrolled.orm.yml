@@ -1,0 +1,41 @@
+Enrolled:
+    type: entity
+    table: enrolled
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        eventId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: event_id
+        classificationId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: classification_id
+        number:
+            type: integer
+            unsigned: false
+            nullable: true
+        code:
+            type: string
+            length: 20
+            fixed: false
+            nullable: true
+        categoryId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: category_id
+        userId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: user_id
+    lifecycleCallbacks: {  }

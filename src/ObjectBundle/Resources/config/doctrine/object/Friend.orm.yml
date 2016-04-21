@@ -1,0 +1,31 @@
+Friend:
+    type: entity
+    table: friend
+    fields:
+        userId:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: user_id
+        userId1:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            column: user_id1
+        isActive:
+            type: boolean
+            nullable: true
+            column: is_active
+        tipeFriendId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: tipe_friend_id
+        userPendingActive:
+            type: integer
+            unsigned: false
+            nullable: true
+            column: user_pending_active
+    lifecycleCallbacks: {  }

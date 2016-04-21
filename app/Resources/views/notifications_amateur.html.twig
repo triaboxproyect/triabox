@@ -1,0 +1,66 @@
+						{% if app.user is not null %}
+						{% render controller('NewsUserBundle:NewsUser:notificationEvent') %}
+						{% render controller('NewsUserBundle:NewsUser:notificationFriend') %}
+						{% render controller('EventBundle:Event:notificationResult') %}
+						{% endif %}
+						{% block dropdown_header %}
+						
+														
+														
+						<li class="dropdown hidden-xs">
+							<a class="btn dropdown-toggle" data-toggle="dropdown">
+								Informar Evento
+								<i class="fa fa-caret-down"></i>
+							</a>
+							
+							<ul class="dropdown-menu" id="more_event" > 
+								<li class="item">
+									<a href="{{ path('event_new') }}">
+										<i class="fa fa-plus"></i> 
+										Enviar
+									</a>
+								</li>
+								{% if app.user is not null and app.user.tipeUser == '01' %}
+								<li class="item">
+									<a href="{{ path('event') }}">
+										<i class="fa fa-list"></i> 
+										Admin Event
+									</a>
+								</li>
+								
+								<li class="item">
+									<a href="{{ path('event_list_without_result') }}">
+										<i class="fa fa-list"></i> 
+										Cargar Resultados
+									</a>
+								</li>
+								<li class="item">
+									<a href="{{ path('admin_dashboard') }}">
+										<i class="fa fa-list"></i> 
+										Dashboard
+									</a>
+								</li>
+								<li class="item">
+									<a href="javascript:moreData('#main-box','{{ path('event_today') }}')">
+										<i class="fa fa-list"></i> 
+										Eventos Hoy
+									</a>
+								</li>
+								<li class="item">
+									<a href="javascript:moreData('#main-box','{{ path('organizer_list') }}')">
+										<i class="fa fa-list"></i> 
+										Admin Organizadores
+									</a>
+								</li>
+								<li class="item">
+							
+								
+								
+								{% endif %}
+							</ul>
+						</li>
+						
+						
+						{% endblock %}
+						
+							</ul>

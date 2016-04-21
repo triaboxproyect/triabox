@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Category list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Isglobal</th>
+                <th>Distancetotal</th>
+                <th>Distancefirstrun</th>
+                <th>Distancelastrun</th>
+                <th>Distanceswim</th>
+                <th>Distancebike</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('category_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.code }}</td>
+                <td>{{ entity.isGlobal }}</td>
+                <td>{{ entity.distanceTotal }}</td>
+                <td>{{ entity.distanceFirstRun }}</td>
+                <td>{{ entity.distanceLastRun }}</td>
+                <td>{{ entity.distanceSwim }}</td>
+                <td>{{ entity.distanceBike }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('category_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('category_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('category_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

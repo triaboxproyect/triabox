@@ -1,0 +1,47 @@
+											<div class="table-responsive">
+												<table class="table user-list table-hover" style="clear: both">
+												
+													<thead>
+														<tr>
+															<th><span>{% trans %}Participante{% endtrans %}</span></th>
+															<th><span>{% trans %}Numero{% endtrans %}</span></th>
+															<th class="text-center"><span>{% trans %}Tiempo no Oficial{% endtrans %}</span></th>
+															<th class="text-center"><span></span></th>
+														</tr>
+													</thead>
+													<tbody>
+															
+														{% for enrolled in registrations %}
+														
+														<tr>
+														
+															<td>
+																<img src="{%  include 'user_photo.html.twig' with {'user': enrolled.user } %}" alt=""/>
+																<a href="#" class="user-link">{{ enrolled.user.name }} {{ enrolled.user.lastname }}</a>
+																<span class="user-subhead">{{ enrolled.user.username }}</span>
+															</td>
+															<td>
+																{{ enrolled.number }}
+															</td>
+															<td>
+																{{ enrolled.time }}
+															</td>
+															<td>
+															{% if app.user is not null and app.user.id == enrolled.user.id %}
+																<a data-toggle="modal" onclick="moreData('#modificacion','{{ path('enrolled_edit', { 'id': enrolled.id }) }}')"  class="btn btn-primary mrg-b-lg">modificar</a>
+															{% endif %}
+															</td>
+														</tr>
+														
+														<tr>
+														<td colspan="4">
+															<div id="modificacion">
+															
+															</div>
+														</tr>
+														{% endfor %}
+														
+													</tbody>
+												</table>
+											</div>
+											

@@ -1,0 +1,27 @@
+<div class="table-responsive">
+		<table class="table user-list table-hover" style="clear: both">
+			<tbody>
+					
+				{% for entity in entities %}
+				<tr>
+				
+					<td style="height: 20%;">
+						<img src="{{ asset(entity.photo) }}" alt=""/>
+						<a href="{{ path('event_show', { 'id': entity.id }) }}" >{{ entity.name }}</a><br>
+						<span class="user-subhead">{{ entity.sport }}</span>
+					</td>
+				
+				</tr>
+			
+				{% endfor %}
+				
+			</tbody>
+		</table>
+	</div>
+
+	
+	
+								
+				
+				
+

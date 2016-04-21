@@ -1,0 +1,42 @@
+<div  id="login" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+				
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div id="login-box">
+						<div class="row">
+							<div class="col-xs-12">
+								<header id="login-header">
+									<div id="login-logo">
+										
+									</div>
+								</header>
+								
+								<div id="login-box-inner">
+									{% trans %}Login or Registration{% endtrans %}
+									<div class="row" id="facebook">
+												<div >
+													<button class="btn btn-primary col-xs-12 btn-facebook"   onclick="location.href='{{ url('hwi_oauth_service_redirect', { service: 'facebook' }) }}'">
+														<i class="fa fa-facebook"></i> FACEBOOK
+													</button>
+													<button class="btn col-xs-12 btn-danger"   onclick="location.href='{{ url('hwi_oauth_service_redirect', { service: 'google' }) }}'">
+														<i class="fa fa-google"></i> google
+													</button>
+												</div>
+{# 												<div class="col-xs-12 col-sm-6">#}
+{# 													<button type="submit" class="btn btn-primary col-xs-12 btn-twitter">#}
+{# 														<i class="fa fa-twitter"></i> Twitter#}
+{# 													</button>#}
+{# 												</div>#}
+											</div>
+									
+									
+									
+								</div>
+							</div>
+						</div>
+					
+					
+					{% block form_login_footer %}
+													
+					{% endblock %}

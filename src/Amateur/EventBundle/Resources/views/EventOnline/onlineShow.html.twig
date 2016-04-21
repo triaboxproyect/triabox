@@ -1,0 +1,199 @@
+
+
+
+{% block main_box_label %}{% trans %}Seguimiento Online{% endtrans %}{% endblock %}
+{% block main_box -%}
+<div class="main-box clearfix profile-box-menu">
+										<div class="main-box-body clearfix">
+<div class="profile-box-header green-bg clearfix" style="background-image: url(http://www.triabox.com/{{ asset(entity.photoBackground) }});">
+	<img src="http://www.triabox.com/{{ asset(entity.photo) }}"alt="" class="profile-img img-responsive" />
+	<h2 style="color: black;">{{ entity.name }}</h2>
+		<div class="icon-box pull-right">
+		{% set url = '/event/show/map/'~name~'/'~entity.id~'/online'  %}
+		{% set comment = '[Estoy participando en '~entity.name~ ']: Segui mi progreso online en triabox'  %}
+	
+		{%  include ':helper:shareButton.html.twig'with {'url': url ,'comment':comment } %}
+	
+		</div>
+											
+</div>
+<div align="center">
+
+			<button type="button" class="btn btn-primary btn-lg" onclick='timer.play();'  >
+				<span class="fa fa-reddit"></span> {% trans %}Iniciar Carrera{% endtrans %} 
+			</button>
+			<button type="button" class="btn btn-primary btn-lg" onclick='timer.pause();'   >
+				<span class="fa fa-reddit"></span> {% trans %}Detener Carrera{% endtrans %} 
+			</button>
+
+</div>
+</div></div>						
+{# <div id="map" style="height: 700px"></div>#}
+	
+
+{% endblock %}
+
+
+{% block lateral_box_up_label %}{% trans %}Estadisticas{% endtrans %}{% endblock %}
+{% block lateral_box_up %}
+		<div id="map_distancia" ></div>
+		
+{% endblock %}
+{% block lateral_box_down_label %}{% trans %}Intervalos{% endtrans %}{% endblock %}
+
+{% block lateral_box_down %}
+<div id="map_intervalo" ></div>	
+{% endblock %}
+{% block script_custom %}
+<div style="visibility: hidden;">
+									<input id="name" name="name" value="{{ name }}">
+									<input id="idEvento" name="idEvento" value="{{ entity.id }}">
+									</div>
+	
+<script>
+		
+// This example creates a 2-pixel-wide red polyline showing the path of William
+// Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+// Brisbane, Australia.
+
+
+
+var poly;
+var map;
+var markers = [];
+
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 14,
+    center: {lat:-34.6027687, lng: -58.367339484}  // Center the map on Chicago, USA.
+  });
+
+  poly = new google.maps.Polyline({
+    strokeColor: '#000000',
+    strokeOpacity: 1.0,
+    strokeWeight: 3
+  });
+  poly.setMap(map);
+
+}
+
+// Adds a marker to the map and push to the array.
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    title: '{{ name }}',
+    map: map
+  });
+  markers.push(marker);
+}
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Shows any markers currently in the array.
+function showMarkers() {
+  setMapOnAll(map);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+
+
+// Handles click events on a map, and adds a new point to the Polyline.
+function addLatLng(lat,lng) {
+  var path = poly.getPath();
+	
+  // Because path is an MVCArray, we can simply append a new coordinate
+  // and it will automatically appear.
+  path.push(new google.maps.LatLng(lat, lng));
+deleteMarkers();
+  	// Add a new marker at the new plotted point on the polyline.
+ 	addMarker(new google.maps.LatLng(lat, lng));
+}
+
+function getLastPoint(){
+
+ $.ajax({
+    // la URL para la petición
+{#     url : '{{ path('event_lastpoint', { 'name': name,'idEvent': idEvent   }) }}',#}
+ 	url : 'http://www.triabox.com/web/app_test.php/event/last/point/{{ name }}/{{ idEvent }}/online',
+    // especifica si será una petición POST o GET
+    type : 'GET',
+ 
+    // el tipo de información que se espera de respuesta
+    dataType : 'json',
+ 
+    // código a ejecutar si la petición es satisfactoria;
+    // la respuesta es pasada como argumento a la función
+    success : function(json) {
+        //alert("posicion".concat(json.long, json.lant));
+        
+        addLatLng(json.lant,json.long);
+    },
+ 
+    // código a ejecutar si la petición falla;
+    // son pasados como argumentos a la función
+    // el objeto de la petición en crudo y código de estatus de la petición
+    error : function(xhr, status) {
+        alert('Disculpe, existió un problema');
+    },
+ 
+    // código a ejecutar sin importar si la petición falló o no
+    complete : function(xhr, status) {
+        
+    }
+});
+
+}
+
+function reloadEstadistica(){
+
+$('#map_distancia').load('http://www.triabox.com/web/app_test.php/event/distance/map/{{ name }}/{{ entity.id }}/online');
+
+}
+
+function reloadIntervalo(){
+$('#map_intervalo').load('http://www.triabox.com/web/app_test.php/event/interval/map/{{ name }}/{{ entity.id }}/online');
+
+}
+	
+
+
+{# function reloadEstadistica(){#}
+
+{# $('#map_distancia').load(http://www.triabox.com/web/app_test.php/'{{ path('event_distance', { 'name': name,'idEvent': idEvent   }) }}');#}
+
+{# }#}
+
+{# function reloadIntervalo(){#}
+{# $('#map_intervalo').load(http://www.triabox.com/web/app_test.php/'{{ path('event_interval', { 'name': name,'idEvent': idEvent   }) }}');#}
+
+{# }#}
+	var count = 0;
+	
+	
+	
+	var myVar = setInterval(reloadEstadistica,20000);
+	var myVar1 = setInterval(reloadIntervalo, 30000);
+	
+	var myPoint = setInterval(getLastPoint,15000);
+
+
+	
+	</script>
+
+{% endblock %}
+

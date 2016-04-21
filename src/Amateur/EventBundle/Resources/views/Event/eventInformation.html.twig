@@ -1,0 +1,76 @@
+<div class="main-box clearfix profile-box-menu">
+									<div class="main-box clearfix">
+										
+									 
+										<div class="tabs-wrapper profile-tabs">
+											<ul class="nav nav-tabs">
+												{% if date(entity.startTime) < date() %} 
+												<li class="active"><a href="#tab-result" data-toggle="tab">Resultado</a></li>
+												
+												{% else %}
+												<li class="active"><a href="#tab-newsfeed" data-toggle="tab">Participantes</a></li>
+												
+												{% endif %}
+												{% if app.user is not null %}
+												<li><a href="#tab-friends" data-toggle="tab">Amigos Participantes</a></li>
+												{% endif %}
+												{% if date(entity.startTime) < date() %} 
+												
+												<li><a href="#tab-punctuation" data-toggle="tab">Puntuación</a></li>
+												{% endif %}
+											</ul>
+											
+											<div class="tab-content">
+											
+												{% if date(entity.startTime) < date() %} 
+												<div class="tab-pane clearfix fade in active" id="tab-result">
+													<div class="form-group">
+													<label for="search">Buscar Resultado</label>
+													<input type="text" class="form-control" id="search_value" placeholder="Nombre, Apellido o Dorsar">
+													<div id="autocomplete">
+													</div>
+												</div>
+													{% include 'UserBundle:User:listUsersClassification.html.twig' with {'registrations': entity.registrations } %}
+													
+													
+													<br/>
+												</div>
+												{% else %}
+												
+												<div class="tab-pane fade in active" id="tab-newsfeed">
+													
+													<div id="newsfeed">
+														
+															{% include 'UserBundle:User:listUsersRegistration.html.twig' with {'registrations': entity.registrations } %}
+					
+													</div>
+													
+												</div>
+												{% endif %}
+												{% if app.user is not null %}
+												<div class="tab-pane fade" id="tab-friends">	
+														{% include 'UserBundle:User:list_users.html.twig' with {'entities': friends,'type':'friends' , 'tipe':''} %}
+												</div>
+												{% endif %}
+												{% if date(entity.startTime) < date() %} 
+												<div class="tab-pane clearfix fade" id="tab-punctuation">
+														
+													{% include 'EventBundle:Event:listPunctuationEvent.html.twig' with {'registrations': entity.registrations } %}
+													
+													
+													<br/>
+													
+												</div>
+												{% endif %}
+												
+												
+											
+												
+											</div>
+										</div>
+										
+									</div>
+								</div>
+								
+		
+	

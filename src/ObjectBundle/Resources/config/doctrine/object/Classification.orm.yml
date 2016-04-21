@@ -1,0 +1,57 @@
+Classification:
+    type: entity
+    table: classification
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 600
+            fixed: false
+            nullable: true
+        eventId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: event_id
+        categoryName:
+            type: string
+            length: 300
+            fixed: false
+            nullable: true
+            column: category_name
+        officialTime:
+            type: datetime
+            nullable: true
+            column: official_time
+        netoTime:
+            type: datetime
+            nullable: true
+            column: neto_time
+        classificationcol:
+            type: string
+            length: 20
+            fixed: false
+            nullable: true
+        extraData:
+            type: string
+            length: 2000
+            fixed: false
+            nullable: true
+            column: extra_data
+        sexo:
+            type: string
+            length: 20
+            fixed: false
+            nullable: true
+        lastname:
+            type: string
+            length: 300
+            fixed: false
+            nullable: true
+    lifecycleCallbacks: {  }

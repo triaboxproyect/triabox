@@ -1,0 +1,28 @@
+{% extends '::layout_dashboard_public.html.twig' %}
+{% block main_box_label %}Eventos{% endblock %}
+
+{% block container %}
+<div class="row">
+			<div class="col-lg-12">
+				<div class="main-box show-grid clearfix">
+			<br/>
+			<div class="main-box-body clearfix">
+				<div class="row">
+					<div >
+							<div class="main-box">
+							<header class="main-box-header clearfix">
+								<h2 class="pull-left">Resultado</h2>
+							</header>
+							<div class="row" >
+										{% include 'EventBundle:Event:listEventPublic.html.twig' with {'entities': entities,'tipe': tipe } %}
+							</div>
+						
+							</div>
+					</div>
+				</div>
+			</div>
+</div>
+</div></div>
+	
+{% endblock %}
+

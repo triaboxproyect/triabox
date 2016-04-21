@@ -1,0 +1,22 @@
+Sport:
+    type: entity
+    table: sport
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 300
+            fixed: false
+            nullable: true
+        eventId:
+            type: integer
+            unsigned: false
+            nullable: false
+            column: event_id
+    lifecycleCallbacks: {  }

@@ -1,0 +1,140 @@
+	
+	<div class="form-group">
+		<label for="username">Nombre</label>
+		<input name="{{ form.name.vars.full_name }}" value="{{ form.name.vars.value }}" type="username" class="form-control" id="username" placeholder="Enter Username" >
+		{{ form_row(form._token) }}
+	</div>
+	
+	<div class="form-group">
+		<label for="exampleInputEmail1">{% trans %}Deporte{% endtrans %} </label>
+		
+		<div class="input-group" >
+			<div class="form-group form-group-select2">
+				{{ form_widget(form.sport) }}
+			
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="exampleInputEmail1">{% trans %}Email{% endtrans %} </label>
+		<input name="{{ form.emailContact.vars.full_name }}" value="{{ form.emailContact.vars.value }}"type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+	</div>
+	
+	
+	<div class="form-group">
+		
+		 
+		 <input id="{{ form.city.vars.id }}" class="controls" name="{{ form.city.vars.full_name }}" value="{{ form.city.vars.value }}"
+			        placeholder="{% trans %}Ingrese Lugar{% endtrans %}">
+			    <div id="type-selector" class="controls">
+			      <input type="radio" name="type" id="changetype-all" checked="checked">
+			      <label for="changetype-all">All</label>
+			
+			      <input type="radio" name="type" id="changetype-establishment">
+			      <label for="changetype-establishment">Establishments</label>
+			
+			      <input type="radio" name="type" id="changetype-address">
+			      <label for="changetype-address">Addresses</label>
+			
+			      <input type="radio" name="type" id="changetype-geocode">
+			      <label for="changetype-geocode">Geocodes</label>
+			    </div>
+	</div>
+	<div class="form-group">
+						<label for="email">{% trans %}Donde es el evento?{% endtrans %}</label>
+						<div class="main-box clearfix">
+							
+							<div class="main-box-body clearfix">
+								<div id="map-geo" class="map-content" style="height: 400px; width: 750px"></div>
+							</div>
+						</div>
+					
+					
+				</div>
+	
+	
+{# 	<div class="form-group">#}
+{# 		<label for="province">{% trans %}Provincia{% endtrans %} </label>#}
+{# 		<input name="{{ form.province.vars.full_name }}"#}
+{# 		 value="{{ form.province.vars.value }}" type="province" class="form-control" id="province" placeholder="Provincia" >#}
+{# 	</div>#}
+{# 	<div class="form-group">#}
+{# 		<label for="country">{% trans %}Pais{% endtrans %} </label>#}
+{# 		<input name="{{ form.country.vars.full_name }}"#}
+{# 		 value="{{ form.country.vars.value }}" type="text" class="form-control" id="country" placeholder="Pais" >#}
+{# 	</div>#}
+	<div class="form-group">
+		<label for="name">{% trans %}Web Organizador{% endtrans %} </label>
+		<input name="{{ form.linkPage.vars.full_name }}"
+		 value="{{ form.linkPage.vars.value }}" type="web_organizador" class="form-control" id="web_organizador" placeholder="Web Organizador" >
+	</div>
+	{% if app.user is not null and app.user.tipeUser == '01' %}
+	<div class="form-group">
+		<label for="datepickerDateComponent">{% trans %}Fecha{% endtrans %} </label>
+		<div class="input-group" data-date-format="dd-mm-yyyy">
+			<input type="text" class="form-control" id="datepickerDateComponent" name="{{ form.startTime.vars.full_name }}"  value="{% if form.startTime.vars.value %}{{ form.startTime.vars.value }}{% endif %}" >
+			
+			<span class="input-group-addon"><i class="fa fa-th"></i></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="timepicker">{% trans %}Hora{% endtrans %} </label>
+		<div class="input-group input-append bootstrap-timepicker">
+			<input type="text" class="form-control" id="timepicker"  name="{{ form.startHs.vars.full_name }}"  value="{{ form.startHs.vars.value }}" >
+			<span class="add-on input-group-addon"><i class="fa fa-clock-o"></i></span>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="name">{% trans %}Archivo Resultado{% endtrans %}</label>
+		{{ form_widget(form.fileResult) }}
+		
+{# 		<input name="{{ form.labelLink.vars.full_name }}"#}
+{# 		 value="{{ form.labelLink.vars.value }}" type="archivo_resultado" class="form-control" id="archivo_resultado" placeholder="Archivo Resultado" >#}
+	</div>
+	<div class="form-group">
+		<label for="lastname">{% trans %}Foto Logo{% endtrans %}</label>
+		{% if form.photo.vars.value != "" %}
+			<img id="archivo" src="{{ asset(form.photo.vars.value) }}" style="max-width: 30mm; max-height: 30mm"/>						
+		{% endif %}
+		{{ form_widget(form.filePhoto) }}
+		
+	</div>
+	<div class="form-group">
+		<label for="lastname">{% trans %}Foto Fondo{% endtrans %}</label>
+		{% if form.photoBackground.vars.value != "" %}
+		<img id="archivo" src="{{ asset(form.photoBackground.vars.value) }}" style="max-width: 30mm; max-height: 30mm"/>						
+		{% endif %}
+		{{ form_widget(form.filePhotoBackground) }}
+		
+		{{ form_row(form._token) }}
+	</div>
+	<div style="visibility: hidden;">
+	
+	{{ form_widget(form.photoBackground) }}
+	{{ form_widget(form.photo) }}
+			{{ form_widget(form.labelLink) }}
+	</div>
+
+	<div class="form-group">
+		{% include 'EventBundle:Category:layoutCategory.html.twig' %}
+	</div>
+		<div class="form-group">
+		<label for="exampleInputEmail1">{% trans %}Activar{% endtrans %} </label>
+		
+		    <div class="onoffswitch">
+									<input type="checkbox" name="{{ form.isActive.vars.full_name }}" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+									<label class="onoffswitch-label" for="myonoffswitch">
+										<div class="onoffswitch-inner"></div>
+										<div class="onoffswitch-switch"></div>
+									</label>
+								</div>
+	</div>
+	<div style="visibility: hidden;">
+	{{ form_widget(form.latitude) }}
+	{{ form_widget(form.longitude) }}
+	</div>
+
+	{% endif %}
+	
+	

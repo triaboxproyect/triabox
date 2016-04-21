@@ -1,0 +1,40 @@
+{% extends '::layout_xtending_dashboard.html.twig' %}
+{% block main_box_label %}Proximos Eventos{% endblock %}
+{% block main_box -%}
+<div class="main-box-body clearfix">
+	
+				
+				{% include 'EventBundle:Event:tapEvent.html.twig' %}
+		
+</div>
+{% endblock %}
+{% block main_col %}{% endblock %}
+{% block lateral_box %}
+
+{% endblock %}
+
+{% block script_custom %}
+	
+	{% include 'EventBundle:Event:tapEventAjax.html.twig' %}
+   
+   {% endblock %}
+   {% block script_ajax_down %}
+   	
+   {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

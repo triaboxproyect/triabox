@@ -1,0 +1,60 @@
+Event:
+    type: entity
+    table: event
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        name:
+            type: string
+            length: 1000
+            fixed: false
+            nullable: false
+        emailContact:
+            type: string
+            length: 255
+            fixed: false
+            nullable: true
+            column: email_contact
+        startTime:
+            type: datetime
+            nullable: false
+            column: start_time
+        createTime:
+            type: datetime
+            nullable: true
+            column: create_time
+        photo:
+            type: string
+            length: 1000
+            fixed: false
+            nullable: true
+        photoBackground:
+            type: string
+            length: 1000
+            fixed: false
+            nullable: true
+            column: photo_background
+        linkPage:
+            type: string
+            length: 1000
+            fixed: false
+            nullable: true
+            column: link_page
+        labelLink:
+            type: string
+            length: 30
+            fixed: false
+            nullable: true
+            column: label_link
+        flyerPath:
+            type: string
+            length: 1000
+            fixed: false
+            nullable: true
+            column: flyer_path
+    lifecycleCallbacks: {  }

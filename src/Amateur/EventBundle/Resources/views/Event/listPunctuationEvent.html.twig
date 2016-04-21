@@ -1,0 +1,142 @@
+<div class="main-box clearfix">
+	<header class="main-box-header clearfix">
+		<h2 class="pull-left">Puntuacion</h2>
+		<div class="filter-block pull-right">
+			<a data-toggle="modal" href="#myModal" class="btn btn-primary mrg-b-lg">aggregar puntuacion</a>
+		</div>
+	</header>
+	<div class="main-box-body clearfix">
+		<div class="conversation-wrapper">
+			<div class="conversation-content">
+				<div class="conversation-inner">
+				
+				{% for enrolled in registrations %}
+					{% if enrolled.punctuation != null %}
+					<div class="main-box clearfix project-box green-box">
+						<div class="main-box-body clearfix">
+							<div class="project-box-header green-bg">
+								
+								<div class="name">
+									<img src="{%  include 'user_photo.html.twig' with {'user': enrolled.user } %}" alt="" class="profile-img-mini" />
+									<a href="#">
+										{{ enrolled.user.name }} {{ enrolled.user.lastname }}
+									</a>
+								</div>
+							</div>
+							
+							<div class="project-box-content">
+								<span class="chart" data-percent="{{ enrolled.punctuation.total }}" data-bar-color="#2ecc71">
+									<span class="percent"></span>%<br/>
+									<span class="lbl">Calificacion</span>
+								</span>
+							</div>
+
+							<div class="profile-box-content clearfix">
+								<ul class="menu-items">																				
+									<li>
+										<div class="alert alert-success">
+											<i class="fa fa-check-circle fa-fw fa-lg"></i>
+											<strong>Lo mejor</strong>    {{ enrolled.punctuation.mostPositive }}
+										</div>
+									</li>
+									<li>
+										<div class="alert alert-danger">
+											<i class="fa fa-times-circle fa-fw fa-lg"></i>
+											<strong>Lo peor</strong>     {{ enrolled.punctuation.mostNegative }}
+										</div>
+									</li>
+											
+								</ul>
+							</div>
+		
+		
+						</div>
+					</div>
+					{% endif %}
+				{% endfor %}
+								
+							
+							
+													
+														
+														
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<form action="{{ path('event_create_punctuation', { 'idEvent': entity.id }) }}" method="post" {{ form_enctype(form) }}>
+{{ form_row(form._token) }}
+<div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h4 class="modal-title">Puntuacion</h4>
+</div>
+<div class="modal-body">
+	<form role="form">
+		<div class="form-group">
+			<label>Ubicacion</label>
+			<span id="location_span" class="slider-label"></span><div class="slider-minmax"></div>
+			<input type="text" class="form-control" id="location" name="{{ form.location.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>Circuito</label>
+	<span id="circuit_span" class="slider-label"></span><div class="slider-minmax1"></div>
+	<input type="text" class="form-control" id="circuit" name="{{ form.circuit.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>Organizacion</label>
+	<span id="organization_span" class="slider-label"></span><div class="slider-minmax2"></div>
+	<input type="text" class="form-control" id="organization" name="{{ form.organization.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>Nutricion</label>
+	<span id="nutrition_span" class="slider-label"></span><div class="slider-minmax3"></div>
+	<input type="text" class="form-control" id="nutrition" name="{{ form.nutrition.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>Puntualidad</label>
+	<span id="punctuality_span" class="slider-label"></span><div class="slider-minmax4"></div>
+	<input type="text" class="form-control" id="punctuality" name="{{ form.punctuality.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>Asistencia</label>
+	<span id="assistance_span" class="slider-label"></span><div class="slider-minmax5"></div>
+	<input type="text" class="form-control" id="assistance" name="{{ form.assistance.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label>KIT</label>
+	<span id="kit_span" class="slider-label"></span><div class="slider-minmax6"></div>
+	<input type="text" class="form-control" id="kit" name="{{ form.kit.vars.full_name }}">
+</div>
+<div class="form-group">
+	<label for="exampleTextarea">Lo mejor</label>
+	<textarea class="form-control" id="mostPositive" rows="3" name="{{ form.mostPositive.vars.full_name }}"></textarea>
+</div>
+
+<div class="form-group">
+	<label for="exampleTextarea">Lo peor</label>
+	<textarea class="form-control" id="mostNegative" rows="3" name="{{ form.mostNegative.vars.full_name }}"></textarea>
+			</div>
+				
+			</div>
+		
+		
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		<button type="submit" class="btn btn-primary">Enviar</button>
+	</div>
+	</form>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
+	
+												
+												
+												
+												
+												
+	
