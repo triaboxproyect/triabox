@@ -16,9 +16,6 @@ main_box_label %}Crear Evento{% endblock %} {% block main_box -%}
 	{% endblock %}
 {% endblock %}
 {% block script_custom %}
-		
-	 
-
 	
 	{%  include ':javascript:autocompleteMap.html.twig' with {'form': form, 'place': form.city.vars.value , 'placeId':  form.city.vars.id  } %}
 	

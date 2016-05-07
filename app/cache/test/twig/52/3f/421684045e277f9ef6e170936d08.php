@@ -20,6 +20,317 @@ class __TwigTemplate_523f421684045e277f9ef6e170936d08 extends Twig_Template
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
         echo "\"></div>
 <div class=\"main-box clearfix profile-box-menu\">
+<<<<<<< OURS
+        <div class=\"main-box-body clearfix\">
+
+                <div class=\"profile-box-header green-bg clearfix\" style=\"background-image: url(http://www.triabox.com/";
+        // line 5
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "photoBackground")), "html", null, true);
+        echo ");\">
+                        <img src=\"http://www.triabox.com/";
+        // line 6
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "photo")), "html", null, true);
+        echo "\"alt=\"\" class=\"profile-img img-responsive\" />
+                        <div class=\"icon-box pull-right\">
+                        ";
+        // line 8
+        $context["url"] = (("/event/" . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id")) . "/show");
+        // line 9
+        echo "                        ";
+        $context["comment"] = ((((((("[Calendario " . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport")) . "]: ") . twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "startTime"), "d.m.y")) . " - ") . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "name")) . " - ") . $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "city"));
+        // line 10
+        echo "
+                        ";
+        // line 11
+        $this->env->loadTemplate(":helper:shareButton.html.twig")->display(array_merge($context, array("url" => (isset($context["url"]) ? $context["url"] : $this->getContext($context, "url")), "comment" => (isset($context["comment"]) ? $context["comment"] : $this->getContext($context, "comment")))));
+        // line 12
+        echo "
+                        </div>
+                </div>
+                ";
+        // line 15
+        if ((($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "puntuation") != 0) && ((isset($context["tipe"]) ? $context["tipe"] : $this->getContext($context, "tipe")) == "show"))) {
+            // line 16
+            echo "                <div class=\"main-box clearfix project-box green-box\">
+                        <div class=\"main-box-body clearfix\">
+
+                                <div class=\"project-box-content\">
+                                        <span class=\"chart\" data-percent=\"";
+            // line 20
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "puntuation"), "html", null, true);
+            echo "\" data-bar-color=\"#2ecc71\">
+                                                <span class=\"percent\"></span>%<br/>
+                                                <span class=\"lbl\">Calificacion</span>
+                                        </span>
+                                </div>
+
+
+                        </div>
+                </div>
+                ";
+        }
+        // line 30
+        echo "                <div class=\"profile-box-content clearfix\">
+                        <ul class=\"menu-items\">
+                        <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-arrow-right fa-lg\"></i> ";
+        // line 34
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "name"), "html", null, true);
+        echo "
+
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-arrow-right fa-lg\"></i> ";
+        // line 40
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "html", null, true);
+        echo "
+
+                                        </a>
+                                </li>
+                                ";
+        // line 44
+        if ((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1)) {
+            // line 45
+            echo "                                <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-arrow-right fa-lg\"></i> 
+                                                ";
+            // line 48
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 9))) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "name"), "html", null, true);
+                echo ": ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceFirstRun"), "html", null, true);
+                echo "k";
+            }
+            echo "  ";
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 2) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 9))) {
+                echo "  ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "name"), "html", null, true);
+                echo " : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceFirstRun"), "html", null, true);
+                echo "k";
+            }
+            echo " 
+
+                                                        ";
+            // line 50
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 4))) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "name"), "html", null, true);
+                echo ": run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceFirstRun"), "html", null, true);
+                echo "k bike: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceLastRun"), "html", null, true);
+                echo "k";
+            }
+            // line 51
+            echo "
+                                                        ";
+            // line 52
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 3))) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "name"), "html", null, true);
+                echo ": swim: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceSwim"), "html", null, true);
+                echo "m bike: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceFirstRun"), "html", null, true);
+                echo "k";
+            }
+            // line 53
+            echo "
+                                                ";
+            // line 54
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 2))) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "name"), "html", null, true);
+                echo ": ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k";
+            }
+            echo "  ";
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 2) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 2))) {
+                echo "  ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "name"), "html", null, true);
+                echo " : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k";
+            }
+            // line 55
+            echo "
+                                                ";
+            // line 56
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 1) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 1))) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "name"), "html", null, true);
+                echo ": ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 0, array(), "array"), "distanceSwim"), "html", null, true);
+                echo "m";
+            }
+            echo "  ";
+            if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 2) && ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 1))) {
+                echo "  ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "name"), "html", null, true);
+                echo " : ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceSwim"), "html", null, true);
+                echo "m";
+            }
+            // line 57
+            echo "                                        </a>
+                                </li>
+                                ";
+        }
+        // line 60
+        echo "                                ";
+        if (((twig_length_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories")) >= 2) && (($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 3) || ($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 4)))) {
+            // line 61
+            echo "                                <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-arrow-right fa-lg\"></i> 
+                                                        ";
+            // line 64
+            if (($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 4)) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "name"), "html", null, true);
+                echo ": run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceFirstRun"), "html", null, true);
+                echo "k bike: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceLastRun"), "html", null, true);
+                echo "k";
+            }
+            // line 65
+            echo "
+                                                        ";
+            // line 66
+            if (($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "sport"), "id") == 3)) {
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "name"), "html", null, true);
+                echo ": swim: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceSwim"), "html", null, true);
+                echo "m bike: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceBike"), "html", null, true);
+                echo "k run: ";
+                echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categories"), 1, array(), "array"), "distanceLastRun"), "html", null, true);
+                echo "k";
+            }
+            // line 67
+            echo "
+                                        </a>
+                                </li>
+                                ";
+        }
+        // line 71
+        echo "                                <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-calendar fa-lg\"></i> ";
+        // line 73
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "startTime"), "d.m.y"), "html", null, true);
+        echo " - ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "startHs"), "html", null, true);
+        echo "
+
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href=\"#\" class=\"clearfix\">
+                                                <i class=\"fa fa-map-marker fa-lg\"></i> ";
+        // line 79
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "city"), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "province"), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "country"), "html", null, true);
+        echo "
+
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href=\"";
+        // line 84
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "linkPage"), "html", null, true);
+        echo "\" class=\"clearfix\" translate=\"yes\">
+                                                <i class=\"fa fa-globe fa-lg\"></i> Web Organizador
+
+                                        </a>
+                                </li>
+                                <li>
+                                        <div align=\"center\">
+
+                                ";
+        // line 92
+        if (((isset($context["tipe"]) ? $context["tipe"] : $this->getContext($context, "tipe")) == "run")) {
+            // line 93
+            echo "                                        <button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"generateIdOnline(";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
+            echo ")\"  >
+                                                <span class=\"fa fa-road\"></span> ";
+            // line 94
+            echo $this->env->getExtension('translator')->getTranslator()->trans("Iniciar Carrera", array(), "messages");
+            echo " 
+                                        </button>
+                                        ";
+        } else {
+            // line 97
+            echo "                                                <button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"moreData('#modificacion";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
+            echo "','";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("enrolled_new", array("idEvent" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+            echo "')\"  >
+                                                        <span class=\"fa fa-plus\"></span>";
+            // line 98
+            if ((twig_date_converter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "startTime")) > twig_date_converter($this->env))) {
+                echo " ";
+                echo $this->env->getExtension('translator')->getTranslator()->trans("Participar", array(), "messages");
+                echo " ";
+            } else {
+                echo " Participe ";
+            }
+            // line 99
+            echo "                                                </button>
+
+                                        ";
+            // line 101
+            if (((isset($context["tipe"]) ? $context["tipe"] : $this->getContext($context, "tipe")) != "show")) {
+                // line 102
+                echo "                                        <button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"window.location.href='";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("event_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+                echo "'\"  >
+                                                <span class=\"fa fa-eye\"></span> ";
+                // line 103
+                echo $this->env->getExtension('translator')->getTranslator()->trans("Detalle", array(), "messages");
+                // line 104
+                echo "                                        </button>
+                                        ";
+            }
+            // line 106
+            echo "                                        ";
+            if ((($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user") != null) && ($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user"), "tipeUser") == "01"))) {
+                // line 107
+                echo "                                        <button type=\"button\" class=\"btn btn-primary btn-lg\" onclick=\"window.location.href='";
+                echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("event_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
+                echo "'\"  >
+                                                <span class=\"fa fa-edit\"></span> ";
+                // line 108
+                echo $this->env->getExtension('translator')->getTranslator()->trans("Editar", array(), "messages");
+                // line 109
+                echo "                                        </button>
+                                        ";
+            }
+            // line 111
+            echo "
+                                        ";
+        }
+        // line 113
+        echo "                                        </div>
+                                </li>
+
+                        </ul>
+                </div>
+        </div>
+</div>
+=======
 \t\t\t\t\t\t\t\t\t\t<div class=\"main-box-body clearfix\">
 \t\t\t\t\t\t\t\t\t\t\t
 \t\t\t\t\t\t\t\t\t\t\t<div class=\"profile-box-header green-bg clearfix\" style=\"background-image: url(http://www.triabox.com/";
@@ -329,6 +640,7 @@ class __TwigTemplate_523f421684045e277f9ef6e170936d08 extends Twig_Template
 \t\t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t</div>
+>>>>>>> THEIRS
 ";
     }
 

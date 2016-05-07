@@ -9,6 +9,10 @@ Amateur\ObjectBundle\Entity\Organizer:
             nullable: false
             generator:
                 strategy: IDENTITY
+        isActive:
+            type: boolean
+            nullable: true
+            column: is_active
         name:
             type: string
             length: 100
@@ -19,10 +23,6 @@ Amateur\ObjectBundle\Entity\Organizer:
             length: 200
             fixed: false
             nullable: true
-        isActive:
-            type: integer
-            nullable: true
-            column: is_active
         web:
             type: string
             length: 200

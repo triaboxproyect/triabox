@@ -65,23 +65,7 @@ class UserController extends Controller
 	
 	}
 
-    /**
-     * Lists all User entities.
-     * @deprecated
-     * @Route("/", name="user")
-     * @Method("GET")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('ObjectBundle:User')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
-    }
+ 
 
     /**
      * Busca todos los usuarios por nombre y apellido con considen con el parametro search
@@ -678,6 +662,26 @@ class UserController extends Controller
     
     }
     
+    
+     /**
+     * Lists all User entities.
+      * 
+     * @Route("/admin/all/users", name="admin_all_user")
+     * @Method("GET")
+     * @Template("UserBundle:UserAdmin:listUsers.html.twig")
+     */
+    public function getUsersAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('ObjectBundle:User')->findAll();
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+            
+    
     /**
      * Obtiene la cantidad de visitas a la pagina de inicio.
      *
@@ -751,7 +755,7 @@ class UserController extends Controller
         $form = $this->createForm(new OrganizerType(), $entity);
         $form->bind($request);
         $entity->setUser($this->getUser());
-        if ($form->isValid()) {
+        
         	
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
@@ -759,7 +763,7 @@ class UserController extends Controller
 		
     
         return $this->redirect($this->generateUrl('organizer_edit', array('id' => $entity->getId())));
-        }
+        
         
         return $this->render('UserBundle:Organizer:new.html.twig', array(
         		'entity' => $entity,

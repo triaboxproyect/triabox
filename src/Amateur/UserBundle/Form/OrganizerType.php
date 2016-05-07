@@ -12,6 +12,7 @@ class OrganizerType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('isActive')
             ->add('address')
             ->add('web')
             ->add('twitter')
@@ -22,7 +23,6 @@ class OrganizerType extends AbstractType
             ->add('description')
             ->add('latitude')
             ->add('longitude')
-            ->add('isActive')
             ->add('file', 'file', array(
             		'label' => 'archivo',
             		'required' => false))

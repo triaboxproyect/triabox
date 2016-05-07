@@ -36,8 +36,7 @@
 									</div>
 								</div>
 							</div>
-
-							<div class="row">
+                        				<div class="row">
 								<div class="col-lg-3 col-sm-6 col-xs-12">
 									<div class="main-box infographic-box colored emerald-bg">
 										<i class="fa fa-envelope"></i>
@@ -70,7 +69,22 @@
 									</div>
 								</div>
 							</div>
-
+                                <div class="row">
+								<div class="col-lg-12">
+									<div class="main-box clearfix">
+										<header class="main-box-header clearfix">
+											<h2 class="pull-left">Todos los usuarios</h2>
+											
+											
+										</header>
+										
+										<div class="main-box-body clearfix">
+                                                                                    <div id="users"></div>
+                                                                                </div>
+                                                                            </div>         
+                                                                        </div>                
+                                                                    </div>                    
+			
 							<div class="row">
 								<div class="col-md-12">
 									<div class="main-box">
@@ -825,6 +839,9 @@ $('#cant_events').load('{{ path('admin_dashboard_cant_events') }}');
 $('#cant_comments').load('{{ path('admin_dashboard_cant_comments') }}');
 
 $('#cant_visit').load('{{ path('admin_dashboard_cant_visit') }}');
+
+$('#users').load('{{ path('admin_all_user') }}');
+
 
 		//CHARTS
 	    function gd(year, day, month) {

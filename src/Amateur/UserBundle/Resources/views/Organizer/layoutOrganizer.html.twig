@@ -22,7 +22,7 @@
     display: block;
 }
 </style>
-				
+				{{ form_errors(form) }}
 				<div class="form-group">
 					<label for="photo">{% trans %}Foto{% endtrans %}</label>
 					{% if form.logo.vars.value != "" %}
@@ -53,18 +53,44 @@
 				'label': 'Facebook' } %}
 				
 				{% if app.user is not null and app.user.tipeUser == '01' %}
-					{% include ':form:inputBooleanLateral.html.twig' with {'id': form.isActive.vars.id 
-					,'name': form.isActive.vars.full_name  , 'label': 'Activar' } %}
+					{#{% include ':form:inputBooleanLateral.html.twig' with {'id': form.isActive.vars.id 
+					,'name': form.isActive.vars.full_name  , 'label': 'Activar' } %}#}
+                                        <div class="form-group">
+                                                <label for="exampleInputEmail1">{% trans %}Activar{% endtrans %} </label>
+
+                                                    <div class="onoffswitch">
+                                                            <input type="checkbox" name="{{ form.isActive.vars.full_name }}" class="onoffswitch-checkbox" id="myonoffswitch" 
+                                                                   value="{{ form.isActive.vars.value }}"
+                                                                   {% if form.isActive.vars.value == '1' %}checked{% endif %} >
+                                                            <label class="onoffswitch-label" for="myonoffswitch">
+                                                                    <div class="onoffswitch-inner"></div>
+                                                                    <div class="onoffswitch-switch"></div>
+                                                            </label>
+                                                    </div>
+                                        </div>
+                                        
+                                        
 				{% endif %}
 				
 				{% include ':form:inputLateralMap.html.twig' with {'id': form.address.vars.id 
 				,'name': form.address.vars.full_name ,'type': 'address' ,'value': form.address.vars.value, 
 				'label': 'Ingrese Ubicacion' } %}
-				
+				<div class="form-group">
+		<label for="exampleInputEmail1">{% trans %}Activar{% endtrans %} </label>
+		
+		    <div class="onoffswitch">
+									<input type="checkbox" name="{{ form.isActive.vars.full_name }}" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+									<label class="onoffswitch-label" for="myonoffswitch">
+										<div class="onoffswitch-inner"></div>
+										<div class="onoffswitch-switch"></div>
+									</label>
+								</div>
+	</div>
 				<div style="visibility: hidden;">
 				{% if app.user is not null and app.user.tipeUser != '01' %}
-					{{ form_widget(form.isActive) }}
+					
 				{% endif %}
+                                
 				{{ form_widget(form.latitude) }}
 				{{ form_widget(form.longitude) }}
 			

@@ -2110,6 +2110,297 @@ class appTestUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         }
 
         if (0 === strpos($pathinfo, '/user')) {
+<<<<<<< OURS
+            // users
+            if ($pathinfo === '/user/users') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_users;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::usersAction',  '_route' => 'users',);
+            }
+            not_users:
+
+            // friends
+            if ($pathinfo === '/user/friends') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_friends;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::friendsAction',  '_route' => 'friends',);
+            }
+            not_friends:
+
+            // know_friends
+            if ($pathinfo === '/user/know') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_know_friends;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::knowUserAction',  '_route' => 'know_friends',);
+            }
+            not_know_friends:
+
+            // user_interaction
+            if ($pathinfo === '/user/user/interaction') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_user_interaction;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::listInteractioAction',  '_route' => 'user_interaction',);
+            }
+            not_user_interaction:
+
+            // friends_ajax
+            if ($pathinfo === '/user/friends/ajax') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_friends_ajax;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::friendsAjaxAction',  '_route' => 'friends_ajax',);
+            }
+            not_friends_ajax:
+
+            // max_friends_user
+            if ($pathinfo === '/user/max/friends/user') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_max_friends_user;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::maxFriendsUserAction',  '_route' => 'max_friends_user',);
+            }
+            not_max_friends_user:
+
+            // add_registration
+            if (preg_match('#^/user/(?P<idEvent>[^/]++)/(?P<tiempo>[^/]++)/(?P<distancia>[^/]++)/addRegistration$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_add_registration;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_registration')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::addRegistrationAction',));
+            }
+            not_add_registration:
+
+            // show_enrolled
+            if (0 === strpos($pathinfo, '/user/enrolled') && preg_match('#^/user/enrolled/(?P<idErolled>[^/]++)/(?P<userID>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_show_enrolled;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'show_enrolled')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::showEnrolledAction',));
+            }
+            not_show_enrolled:
+
+            // user_create
+            if ($pathinfo === '/user/') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_user_create;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::createAction',  '_route' => 'user_create',);
+            }
+            not_user_create:
+
+            // send_request_friend
+            if (0 === strpos($pathinfo, '/user/send_request_friend') && preg_match('#^/user/send_request_friend/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_send_request_friend;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'send_request_friend')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::addNotificationFriendAction',));
+            }
+            not_send_request_friend:
+
+            // add_friend
+            if (0 === strpos($pathinfo, '/user/add_friend') && preg_match('#^/user/add_friend/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_add_friend;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_friend')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::addFriendAction',));
+            }
+            not_add_friend:
+
+            // delete_friend
+            if (0 === strpos($pathinfo, '/user/delete_friend') && preg_match('#^/user/delete_friend/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_delete_friend;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'delete_friend')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::deleteFriendAction',));
+            }
+            not_delete_friend:
+
+            // add_follower
+            if (0 === strpos($pathinfo, '/user/add_follower') && preg_match('#^/user/add_follower/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_add_follower;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'add_follower')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::addFollowerAction',));
+            }
+            not_add_follower:
+
+            // user_new
+            if ($pathinfo === '/user/registration') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_user_new;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::newAction',  '_route' => 'user_new',);
+            }
+            not_user_new:
+
+            // user_show
+            if (preg_match('#^/user/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_user_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::showAction',));
+            }
+            not_user_show:
+
+            // user_edit
+            if (preg_match('#^/user/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_user_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_edit')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::editAction',));
+            }
+            not_user_edit:
+
+            // user_update_first_time
+            if (preg_match('#^/user/(?P<id>[^/]++)/firstTime$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_user_update_first_time;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_update_first_time')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::updateFirstTimeAction',));
+            }
+            not_user_update_first_time:
+
+            // user_update
+            if (preg_match('#^/user/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_user_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_update')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::updateAction',));
+            }
+            not_user_update:
+
+            // user_delete
+            if (preg_match('#^/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_user_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_delete')), array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::deleteAction',));
+            }
+            not_user_delete:
+
+            // users_top
+            if ($pathinfo === '/user/users/top') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_users_top;
+                }
+
+                return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getUserOrdenByFriendAction',  '_route' => 'users_top',);
+            }
+            not_users_top:
+
+            if (0 === strpos($pathinfo, '/user/admin')) {
+                // admin_dashboard
+                if ($pathinfo === '/user/admin/dashboard') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_admin_dashboard;
+                    }
+
+                    return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::showDashboardAction',  '_route' => 'admin_dashboard',);
+                }
+                not_admin_dashboard:
+
+                if (0 === strpos($pathinfo, '/user/admin/cant')) {
+                    // admin_dashboard_cant_user
+                    if ($pathinfo === '/user/admin/cant/user') {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_admin_dashboard_cant_user;
+                        }
+
+                        return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getCantUsersAction',  '_route' => 'admin_dashboard_cant_user',);
+                    }
+                    not_admin_dashboard_cant_user:
+
+                    // admin_dashboard_cant_events
+                    if ($pathinfo === '/user/admin/cant/events') {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_admin_dashboard_cant_events;
+                        }
+
+                        return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getCantEventsAction',  '_route' => 'admin_dashboard_cant_events',);
+                    }
+                    not_admin_dashboard_cant_events:
+
+                    // admin_dashboard_cant_comments
+                    if ($pathinfo === '/user/admin/cant/comments') {
+                        if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                            $allow = array_merge($allow, array('GET', 'HEAD'));
+                            goto not_admin_dashboard_cant_comments;
+                        }
+
+                        return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getCantCommentsAction',  '_route' => 'admin_dashboard_cant_comments',);
+                    }
+                    not_admin_dashboard_cant_comments:
+
+                }
+
+                // admin_all_user
+                if ($pathinfo === '/user/admin/all/users') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_admin_all_user;
+                    }
+
+                    return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getUsersAction',  '_route' => 'admin_all_user',);
+                }
+                not_admin_all_user:
+
+                // admin_dashboard_cant_visit
+                if ($pathinfo === '/user/admin/cant/visit') {
+                    if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                        $allow = array_merge($allow, array('GET', 'HEAD'));
+                        goto not_admin_dashboard_cant_visit;
+                    }
+
+                    return array (  '_controller' => 'Amateur\\UserBundle\\Controller\\UserController::getCantVisitAction',  '_route' => 'admin_dashboard_cant_visit',);
+                }
+                not_admin_dashboard_cant_visit:
+=======
             // user
             if (rtrim($pathinfo, '/') === '/user') {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
@@ -2403,6 +2694,7 @@ class appTestUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
                     not_admin_dashboard_cant_visit:
 
                 }
+>>>>>>> THEIRS
 
             }
 
