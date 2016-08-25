@@ -1,9 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-<<<<<<< OURS
-    resource: 'C:/wamp/www/triabox/app/config/routing_test.yml'
-=======
-    resource: 'C:/wamp/www/triabox_/app/config/routing_test.yml'
->>>>>>> THEIRS
